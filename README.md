@@ -4,7 +4,7 @@ Networked multiplayer implementation of the card game [Big 2](https://en.wikiped
 
 [The game rules can be found on Wikipedia](https://en.wikipedia.org/wiki/Big_two).
 
-Platforms: only Windows is supported at the moment; [Linux version is planned](). If you'd like to help out porting this to Linux/macOS, [please let me know]()!
+Platforms: only Windows is supported at the moment; [Linux version is planned](https://github.com/nickmqb/big2/issues/1). If you'd like to help out porting this to Linux/macOS, [let me know](https://github.com/nickmqb/big2/issues/2)!
 
 ![alt text](docs/screenshot_0.png "Screenshot")
 
