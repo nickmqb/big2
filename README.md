@@ -58,7 +58,7 @@ Win sound: [https://freesound.org/people/humanoide9000/sounds/466133/](https://f
 
 Graphics & audio tools: [BMFont](https://www.angelcode.com/products/bmfont/), [Paint.NET](https://www.getpaint.net/), [Audacity](https://www.audacityteam.org/)
 
-All Muon code in this repo (`.mu` files) licensed under MIT license.
+All Muon code in this repo (.mu files) licensed under MIT license.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
