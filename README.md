@@ -6,7 +6,7 @@ Networked multiplayer implementation of the card game [Big 2](https://en.wikiped
 
 Platforms: only Windows is supported at the moment; [Linux version is planned](https://github.com/nickmqb/big2/issues/1). If you'd like to help out porting this to Linux/macOS, [let me know](https://github.com/nickmqb/big2/issues/2)!
 
-<img src="https://github.com/nickmqb/big2/blob/master/docs/screenshot_0.png" width="512px">
+![alt text](docs/screenshot_0.png "Screenshot")
 
 ## Build (Windows)
 
