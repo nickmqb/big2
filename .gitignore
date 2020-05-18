@@ -5,5 +5,5 @@
 !*.h
 !*.mu
 !*.args
-#!runtime_files/*
+!runtime_files/*
 !docs/*
