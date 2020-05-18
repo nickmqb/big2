@@ -46,7 +46,7 @@ stb_image.h: [https://github.com/nothings/stb](https://github.com/nothings/stb)
 
 Card sprites are based on [https://code.google.com/archive/p/vector-playing-cards/](https://code.google.com/archive/p/vector-playing-cards/)
 
-Marko One font: [https://fonts.google.com/specimen/Marko+One](https://fonts.google.com/specimen/Marko+One) ([view license](`docs/MarkoOne-OFL.txt`))
+Marko One font: [https://fonts.google.com/specimen/Marko+One](https://fonts.google.com/specimen/Marko+One) ([view license](docs/MarkoOne-OFL.txt))
 
 Card place sounds: [https://www.kenney.nl/assets/casino-audio](https://www.kenney.nl/assets/casino-audio) (modified)
 
