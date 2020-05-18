@@ -1,0 +1,67 @@
+SOCK_STREAM skip
+IN_ADDR struct skip
+
+InitializeSRWLock
+AcquireSRWLockExclusive
+ReleaseSRWLockExclusive
+InitializeConditionVariable
+SleepConditionVariableSRW
+WakeConditionVariable
+CreateThread
+CloseHandle
+WSAStartup
+WSACleanup
+socket
+bind
+connect
+listen
+accept
+recv
+send
+closesocket
+htons
+htonl
+ntohs
+AF_* const int
+IPPROTO_* const int
+IPPROTO enum
+INADDR_* const uint
+INVALID_SOCKET const ulong
+SOCKET_ERROR const int
+struct sockaddr_in
+SOMAXCONN const int
+shutdown
+Sleep
+MSG_WAITALL const int
+SD_BOTH const int
+setsockopt
+WSAGetLastError
+WSAETIMEDOUT const int
+WSAEWOULDBLOCK const int
+ioctlsocket
+FIONBIO const int
+CryptAcquireContextA
+CryptGenRandom
+PROV_RSA_FULL const uint
+WSAStringToAddressA fun prefer_cstring
+GetLocalTime
+MiniDumpWriteDump
+CreateFileA fun prefer_cstring
+GENERIC_READ const uint
+GENERIC_WRITE const uint
+CREATE_ALWAYS const uint
+FILE_SHARE_* const uint
+FILE_ATTRIBUTE_NORMAL const uint
+GetCurrentProcess
+GetCurrentProcessId
+AddVectoredExceptionHandler
+GetCurrentThreadId
+EXCEPTION_CONTINUE_SEARCH
+GetLastError
+struct _EXCEPTION_POINTERS
+OpenProcess
+GetProcessId
+CreateProcessA fun prefer_cstring
+GetModuleFileNameA
+PROCESS_ALL_ACCESS const uint
+SetUnhandledExceptionFilter

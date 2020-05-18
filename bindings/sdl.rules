@@ -1,0 +1,43 @@
+// This is just a small subset of all SDL functions
+
+SDL_Init
+SDL_CreateWindow
+SDL_INIT_* const uint
+SDL_WINDOW_* const uint
+SDL_Delay
+SDL_GL_CreateContext
+SDL_GL_SwapWindow
+SDL_PollEvent
+SDL_WaitEvent
+SDL_QUIT const uint
+SDL_KEYDOWN const uint
+SDL_KEYUP const uint
+SDL_TEXTINPUT const uint
+SDL_WINDOWEVENT const uint
+SDL_WINDOWEVENT_*
+SDL_*Event struct
+SDL_EventType
+SDL_WindowFlags
+SDL_GetMouseState
+SDL_StartTextInput
+SDL_WindowEventID
+SDL_SetWindowFullscreen
+SDL_GetWindowFlags
+SDL_GetDesktopDisplayMode
+SDL_SetWindowSize
+SDL_SetWindowPosition
+SDL_BUTTON_* const byte
+SDL_WINDOWPOS_* const int
+SDL_GL_SetAttribute
+SDL_GL_CONTEXT_* const uint
+SDL_GLcontextFlag
+SDL_GetError
+SDL_LoadWAV_RW fun 
+SDL_RWFromFile fun prefer_cstring
+AUDIO_S16 const ushort
+SDL_AUDIO_ALLOW_* const int
+SDL_OpenAudioDevice fun
+SDL_QueueAudio fun
+SDL_PauseAudioDevice fun
+SDL_MixAudioFormat fun
+SDL_CloseAudioDevice fun

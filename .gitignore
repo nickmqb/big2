@@ -5,5 +5,6 @@
 !*.h
 !*.mu
 !*.args
+!*.rules
 !runtime_files/*
 !docs/*

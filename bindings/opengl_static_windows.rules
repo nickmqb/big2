@@ -1,0 +1,4 @@
+gl* fun
+wgl* fun
+wglGetProcAddress fun prefer_cstring
+GL_* const uint
