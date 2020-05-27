@@ -315,7 +315,7 @@ Server {
 		while i < 10 {
 			deal(s)
 			// If any hand is invalid (unlikely), deal again
-			allValid := false
+			allValid := true
 			for p in s.players {
 				allValid = allValid && Rules.isValidHand(ref p.hand.asArray())
 			}
