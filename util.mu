@@ -187,12 +187,12 @@ InlineList8<T> struct {
 	count int
 
 	toArray(self *InlineList8<T>) {
-		assert(0 <= self.count && self.count < 8)
+		assert(0 <= self.count && self.count <= 8)
 		return Array.fromTypedPtr(ref self.data.item_0, self.count)
 	}
 
 	fromArray(array Array<T>) {		
-		assert(0 <= array.count && array.count < 8)
+		assert(0 <= array.count && array.count <= 8)
 		result := InlineList8<T> { count: array.count }
 		array.copySlice(0, array.count, ref result.toArray(), 0)
 		return result
@@ -204,12 +204,12 @@ InlineList16<T> struct {
 	count int
 
 	toArray(self *InlineList16<T>) {
-		assert(0 <= self.count && self.count < 16)
+		assert(0 <= self.count && self.count <= 16)
 		return Array.fromTypedPtr(ref self.data.item_0, self.count)
 	}
 
 	fromArray(array Array<T>) {		
-		assert(0 <= array.count && array.count < 16)
+		assert(0 <= array.count && array.count <= 16)
 		result := InlineList16<T> { count: array.count }
 		array.copySlice(0, array.count, ref result.toArray(), 0)
 		return result
