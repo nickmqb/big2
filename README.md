@@ -26,6 +26,7 @@ Platforms: only Windows is supported at the moment; [Linux version is planned](h
 * `-rounds [number]` (optional, host only; default is 8)
 * `-ai [number]` (optional, host only; add N AI players)
 * `-hostonly` (optional, host only; don't join game)
+* `-log` (optional, host only; write game log to disk)
 
 For example:
 * Host game: `big2 -name Nick -host`

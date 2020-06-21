@@ -19,6 +19,7 @@ ServerState struct #RefType {
 	prevPlayer int
 	hasDroppedClient bool
 	numRounds int
+	logFile pointer
 }
 
 Client struct #RefType {
@@ -38,11 +39,22 @@ ServerThreadStartArgs struct {
 Server {
 	:defaultPort = 27191_us
 
-	start(port ushort, bindAny bool, numRounds int, numAI int) {
+	start(port ushort, bindAny bool, numRounds int, numAI int, log bool) {
 		s := new ServerState {
 			newConnections: new Channel.create<TcpSocket>(64),
 			listener: TcpListener(port, bindAny),
 			numRounds: numRounds,
+		}
+
+		if log {
+			time := SYSTEMTIME{}
+			GetLocalTime(ref time)
+			name := format("big2v{}-game-log-{}-{}-{}-{}_{}_{}.{}.txt", Connection.version, time.wYear, time.wMonth, time.wDay, time.wHour, time.wMinute, time.wSecond, time.wMilliseconds)
+			s.logFile = CStdlib.fopen(name.alloc_cstring(), "wb")
+			if s.logFile == null {
+				Stdout.writeLine("Could not create log file")
+				abandon()
+			}			
 		}
 
 		createThread(acceptThread, pointer_cast(s, pointer))
@@ -396,7 +408,12 @@ Server {
 			sb.write(format(" | {} {}", p.name.toString(), p.score))
 		}
 
-		Stdout.writeLine(sb.compactToString())
+		info := sb.compactToString()		
+		Stdout.writeLine(info)
+		if s.logFile != null {
+			CStdlib.fprintf(s.logFile, "%.*s\n", info.length, info.dataPtr)
+			fflush(pointer_cast(s.logFile, *FILE))
+		}
 	}
 
 	isEndOfCycle(s ServerState) {

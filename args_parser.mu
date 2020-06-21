@@ -8,6 +8,7 @@ Args struct {
 	rounds int
 	noArgs bool
 	hostOnly bool
+	log bool
 }
 
 parseArgs(parser CommandLineArgsParser) {
@@ -77,6 +78,12 @@ parseArgs(parser CommandLineArgsParser) {
 				args.hostOnly = true
 			} else {
 				parser.error("-hostonly can only be used with -host")
+			}
+		} else if token == "-log" {
+			if args.host {
+				args.log = true
+			} else {
+				parser.error("-log can only be used with -host")
 			}
 		} else {
 			parser.error(format("Invalid flag: {}", token))

@@ -860,6 +860,7 @@ main() {
 		Stdout.writeLine("  -rounds [number]   (host only)")
 		Stdout.writeLine("  -ai [number]       (host only)")
 		Stdout.writeLine("  -hostonly          (host only)")
+		Stdout.writeLine("  -log               (host only)")
 		Stdout.writeLine("")
 		Stdout.writeLine("Hotkeys:")
 		Stdout.writeLine("  Enter   Play selected cards")
@@ -884,7 +885,7 @@ main() {
 	if args.host {
 		port := args.port > 0 ? args.port : Server.defaultPort
 		rounds := args.rounds > 0 ? args.rounds : 8
-		Server.start(port, args.numAI < 3, rounds, args.numAI)
+		Server.start(port, args.numAI < 3, rounds, args.numAI, args.log)
 		Stdout.writeLine("Server started")
 		if args.hostOnly {
 			while true {

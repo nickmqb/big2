@@ -65,3 +65,4 @@ CreateProcessA fun prefer_cstring
 GetModuleFileNameA
 PROCESS_ALL_ACCESS const uint
 SetUnhandledExceptionFilter
+fflush
