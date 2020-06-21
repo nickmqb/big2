@@ -124,6 +124,7 @@ AppState struct #RefType {
 	windowPtr pointer
 	width int
 	height int
+	mouseOffsetY int
 	isFullscreen bool
 	fpsCounter FpsCounter
 	isFpsVisible bool
@@ -1054,7 +1055,8 @@ mainLoop(s AppState, arenaAllocator ArenaAllocator, ringAllocator RingAllocator)
 				ee := transmute(e, SDL_WindowEvent)
 				if ee.event == cast(SDL_WindowEventID.SDL_WINDOWEVENT_SIZE_CHANGED, uint) {
 					s.width = max(1280, ee.data1)
-					s.height = max(800, ee.data2)
+					s.height = max(768, ee.data2)
+					s.mouseOffsetY = s.height - ee.data2
 				}
 			} else if eventType == SDL_KEYDOWN {
 				ee := transmute(e, SDL_KeyboardEvent)
@@ -1070,12 +1072,13 @@ mainLoop(s AppState, arenaAllocator ArenaAllocator, ringAllocator RingAllocator)
 			} else if eventType == cast(SDL_EventType.SDL_MOUSEBUTTONDOWN, uint) || eventType == cast(SDL_EventType.SDL_MOUSEBUTTONUP, uint) {
 				ee := transmute(e, SDL_MouseButtonEvent)
 				if ee.button == SDL_BUTTON_LEFT {
-					events.add(Event { type: eventType == cast(SDL_EventType.SDL_MOUSEBUTTONDOWN, uint) ? EventType.mouseDown : EventType.mouseUp, mousePos: IntVector2(ee.x, ee.y) }) 
+					events.add(Event { type: eventType == cast(SDL_EventType.SDL_MOUSEBUTTONDOWN, uint) ? EventType.mouseDown : EventType.mouseUp, mousePos: IntVector2(ee.x, ee.y + s.mouseOffsetY) }) 
 				}
 			}
 		}
 
 		SDL_GetMouseState(ref s.mouse.x, ref s.mouse.y)
+		s.mouse.y += s.mouseOffsetY
 
 		if s.screenType == ScreenType.message {
 			MessageScreen.update(s, events, dt)
