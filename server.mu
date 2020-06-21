@@ -1,5 +1,4 @@
 ServerPlayer struct #RefType {
-	playerIndex int
 	clientIndex int
 	name FixedCapList<char>
 	score int
@@ -305,7 +304,18 @@ Server {
 			s.round = 1
 			for p in s.players {
 				p.score = 0
+			}			
+			
+			// Shuffle seat positions
+			newPos := Array<ServerPlayer>(4)
+			for i := 0; i < 4 {
+				newPos[i] = s.players[i]
 			}
+			SecureRandom.shuffle(ref newPos)
+			for p, i in newPos {
+				s.clients.get(p.clientIndex).playerIndex = i
+			}
+			newPos.copySlice(0, 4, s.players, 0)
 		}
 
 		s.board.clear()
@@ -522,7 +532,7 @@ Server {
 		
 		s.players = new Array<ServerPlayer>(4)
 		for i := 0; i < s.players.count {
-			s.players[i] = new ServerPlayer { playerIndex: i, clientIndex: -1, name: new FixedCapList<char>(16), hand: new FixedCapList<Card>(16) }
+			s.players[i] = new ServerPlayer { clientIndex: -1, name: new FixedCapList<char>(16), hand: new FixedCapList<Card>(16) }
 		}
 
 		s.board = new FixedCapList<Card>(8)
