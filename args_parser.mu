@@ -91,11 +91,10 @@ parseArgs(parser CommandLineArgsParser) {
 		token = parser.readToken()
 	}
 
-	if args.name == "" && !args.hostOnly {
-		parser.expected("-name [yourname]")
-	}
 	if args.join == "" && args.host == false {
 		parser.expected("-join [address], or: -host")
+	} else if args.name == "" && !args.hostOnly {
+		parser.expected("-name [yourname]")
 	}
 
 	return args
