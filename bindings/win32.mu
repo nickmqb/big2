@@ -1254,6 +1254,8 @@ MiniDumpWriteDump(hProcess pointer, ProcessId uint, hFile pointer, DumpType MINI
 :CREATE_ALWAYS uint = 2_u
 :WSAEWOULDBLOCK int = 10035
 :WSAETIMEDOUT int = 10060
+:NTE_BAD_KEYSET uint = 2148073494_u
+:CRYPT_NEWKEYSET uint = 8_u
 :PROV_RSA_FULL uint = 1_u
 :AF_UNSPEC int = 0
 :AF_UNIX int = 1

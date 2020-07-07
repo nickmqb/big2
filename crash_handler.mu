@@ -20,6 +20,8 @@ crashHandler(info *EXCEPTION_POINTERS) int #CallingConvention("__stdcall") {
 		return EXCEPTION_CONTINUE_SEARCH
 	}
 
+	lastError := GetLastError()
+
 	AcquireSRWLockExclusive(ref crashHandlerLock)
 	::currentAllocator = ::crashAllocator
 	threadId := GetCurrentThreadId()
@@ -29,6 +31,8 @@ crashHandler(info *EXCEPTION_POINTERS) int #CallingConvention("__stdcall") {
 	ulong.writeHexTo(info.ExceptionRecord.ExceptionCode, ref sb)
 	sb.write("; thread id ")
 	threadId.writeTo(ref sb)
+	sb.write("; GetLastError ")
+	lastError.writeTo(ref sb)
 	infoStr := sb.compactToString()
 	Stdout.writeLine(infoStr)
 

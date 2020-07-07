@@ -66,3 +66,5 @@ GetModuleFileNameA
 PROCESS_ALL_ACCESS const uint
 SetUnhandledExceptionFilter
 fflush
+NTE_BAD_KEYSET const uint
+CRYPT_NEWKEYSET const uint
