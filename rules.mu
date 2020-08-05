@@ -103,11 +103,11 @@ Rules {
 		// Straight (+ straight flush)
 		straightScore := -1
 		if b.rank == a.rank + 1 && c.rank == a.rank + 2 && d.rank == a.rank + 3 && e.rank == a.rank + 4 {
-			straightScore = 0
+			straightScore = 100
 		} else if a.rank == 3 && b.rank == 4 && c.rank == 5 && d.rank == 6 && e.rank == 2 {
 			straightScore = 100 // Straight 2,3,4,5,6
 		} else if a.rank == 3 && b.rank == 4 && c.rank == 5 && d.rank == Card.ace && e.rank == 2 {
-			straightScore = 200 // Straight A,2,3,4,5
+			straightScore = 100 // Straight A,2,3,4,5
 		}
 
 		if straightScore >= 0 {
