@@ -75,7 +75,7 @@ ReadMessageResult enum {
 }
 
 Connection {
-	:version = 4
+	:version = 5
 	:magicNumber = 0x32676962
 
 	tryReceiveBytes(ts TcpSocket, buffer Array<byte>, index int, bufferPos *int) {
