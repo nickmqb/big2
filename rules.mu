@@ -275,4 +275,32 @@ Rules {
 		}
 		return ""
 	}
+
+	isValidMove(board Array<Card>, move Array<Card>) {
+		if board.count > 0 {
+			return move.count == board.count && Rules.scoreMove(move) > Rules.scoreMove(board)
+		} else {
+			return Rules.scoreMove(move) > 0
+		}
+	}
+
+	containsSubset(cards Array<Card>, subset Array<Card>) {
+		for c in subset {
+			if !containsCard(cards, c) {
+				return false
+			}
+		}
+		return true
+	}
+
+	containsDuplicates(cards Array<Card>) {
+		for i := 0; i < cards.count {
+			for j := i + 1; j < cards.count {
+				if cards[i] == cards[j] {
+					return true
+				}
+			}
+		}
+		return false
+	}
 }

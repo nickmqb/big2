@@ -295,18 +295,14 @@ GameScreen {
 			return false
 		}
 
-		cards := new List<Card>{}
+		move := new List<Card>{}
 		for hc in s.hand.asArray() {
 			if hc.isSelected {
-				cards.add(hc.card)
+				move.add(hc.card)
 			}
 		}
 
-		if s.board.count > 0 {
-			return cards.count == s.board.count && Rules.scoreMove(ref cards.asArray()) > Rules.scoreMove(ref s.board.asArray())
-		} else {
-			return Rules.scoreMove(ref cards.asArray()) > 0
-		}
+		return Rules.isValidMove(ref s.board.asArray(), ref move.asArray())
 	}
 
 	isPassEnabled(s AppState) {

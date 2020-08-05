@@ -461,13 +461,31 @@ Server {
 
 	handlePlay(s ServerState, cl Client, m PlayMessage) {
 		if s.turn != cl.playerIndex {
-			Stdout.writeLine(format("Client{}: invalid play, closing", cl.clientIndex))
+			Stdout.writeLine(format("Client{}: invalid play (turn), closing", cl.clientIndex))
 			dropClient(s, cl)
 			return
 		}
 
 		move := new m.cards.toArray().toCardArray()
 		hand := s.players[cl.playerIndex].hand
+
+		if Rules.containsDuplicates(move) {
+			Stdout.writeLine(format("Client{}: invalid play (duplicate), closing", cl.clientIndex))
+			dropClient(s, cl)
+			return
+		}
+
+		if !Rules.containsSubset(ref hand.asArray(), move) {
+			Stdout.writeLine(format("Client{}: invalid play (not subset), closing", cl.clientIndex))
+			dropClient(s, cl)
+			return
+		}
+
+		if !Rules.isValidMove(ref s.board.asArray(), move) {
+			Stdout.writeLine(format("Client{}: invalid play, closing", cl.clientIndex))
+			dropClient(s, cl)
+			return
+		}
 
 		for c in move {
 			i := 0
