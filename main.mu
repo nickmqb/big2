@@ -561,6 +561,11 @@ GameScreen {
 				passOrPrePass(s)
 			} else if e.type == EventType.mouseUp && clickedID == Widget.readyButton && canReady(s) {
 				ready(s)
+			} else if e.type == EventType.keyDown && (e.scanCode == SDL_Scancode.SDL_SCANCODE_BACKSPACE || e.scanCode == SDL_Scancode.SDL_SCANCODE_ESCAPE) && s.stage == GameStage.playing {
+				hand := s.hand.asArray()
+				for i := 0; i < s.hand.count {
+					hand[i].isSelected = false
+				}				
 			} else if e.type == EventType.mouseDown && (Widget.firstCard <= clickedID && clickedID < Widget.firstCard + s.hand.count) && s.stage == GameStage.playing {
 				index := clickedID - Widget.firstCard
 				hc := ref s.hand.asArray()[index]
@@ -910,6 +915,9 @@ main() {
 	sendMessageToServer(s, ref transmute(Connection.joinMessage(args.name), Message))
 
 	assert(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) == 0)
+
+	assert(SDL_SetHint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH.alloc_cstring(), "1") == SDL_bool.SDL_TRUE)
+
 	//assert(SDL_GL_SetAttribute(SDL_GLattr.SDL_GL_CONTEXT_FLAGS, cast(SDL_GL_CONTEXT_DEBUG_FLAG, int)) == 0)
 
 	s.windowPtr = SDL_CreateWindow(pointer_cast(format("Big2 (v{})", Connection.version), *sbyte), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, s.width, s.height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE)

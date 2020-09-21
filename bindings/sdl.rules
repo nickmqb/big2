@@ -41,3 +41,5 @@ SDL_QueueAudio fun
 SDL_PauseAudioDevice fun
 SDL_MixAudioFormat fun
 SDL_CloseAudioDevice fun
+SDL_SetHint fun prefer_cstring
+SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH const cstring

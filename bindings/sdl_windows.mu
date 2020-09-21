@@ -965,6 +965,7 @@ SDL_Event struct {
 }
 SDL_PollEvent(event *SDL_Event #As("SDL_Event *")) int #Foreign("SDL_PollEvent")
 SDL_WaitEvent(event *SDL_Event #As("SDL_Event *")) int #Foreign("SDL_WaitEvent")
+SDL_SetHint(name cstring, value cstring) SDL_bool #As("SDL_bool") #Foreign("SDL_SetHint")
 SDL_Delay(ms uint) void #Foreign("SDL_Delay")
 SDL_Init(flags uint) int #Foreign("SDL_Init")
 :AUDIO_S16 ushort = 32784_us
@@ -987,6 +988,7 @@ SDL_Init(flags uint) int #Foreign("SDL_Init")
 :SDL_BUTTON_RMASK byte = 4_b
 :SDL_BUTTON_X1MASK byte = 8_b
 :SDL_BUTTON_X2MASK byte = 16_b
+:SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH string = "SDL_MOUSE_FOCUS_CLICKTHROUGH"
 :SDL_WINDOW_LACKS_SHAPE uint = 4294967293_u
 :SDL_INIT_TIMER uint = 1_u
 :SDL_INIT_AUDIO uint = 16_u
