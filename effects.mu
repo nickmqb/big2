@@ -410,7 +410,7 @@ SpriteEffect struct #RefType {
 		
 		glBindVertexArray(s.vao)
 		glBindBuffer(GL_ARRAY_BUFFER, s.vbo)
-		glBufferData(GL_ARRAY_BUFFER, sizeof(VertexPos2fColor4b) * 6 * maxNumSprites, null, GL_DYNAMIC_DRAW)
+		glBufferData(GL_ARRAY_BUFFER, sizeof(VertexPos2fTex2fColor4b) * 6 * maxNumSprites, null, GL_DYNAMIC_DRAW)
 
 		glVertexAttribPointer(0, 2, GL_FLOAT, false, sizeof(VertexPos2fTex2fColor4b), null)
 		glEnableVertexAttribArray(0)
